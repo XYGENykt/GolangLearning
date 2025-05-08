@@ -1,56 +1,32 @@
-// Дан массив, состоящий из целых чисел. Напишите программу, которая меняет местами первый
-// минимальный и последний максимальный элементы массива. Индексация начинается с нуля.
-
+// Дан массив, состоящий из целых чисел. Напишите программу, которая подсчитает количество элементов массива, больших предыдущего (левого соседа).
 package main
 
 import "fmt"
 
-func min(array []int) int {
-
-	minIndex := 0
-	min := array[minIndex]
-	for i := range array {
-		if array[i] < min {
-			min = array[i]
-			minIndex = i
-		}
-	}
-	return minIndex
-}
-
-func max(array []int) int {
-
-	maxIndex := 0
-	max := array[maxIndex]
-	for i := range array {
-		if array[i] >= max {
-			max = array[i]
-			maxIndex = i
-		}
-	}
-	return maxIndex
-}
-
 func main() {
 	var (
+		n, x  int
+		slice []int
 		count int
 	)
-	fmt.Scan(&count)
-	array := make([]int, count)
+	fmt.Scan(&n)
 
-	for i := range array {
-		fmt.Scan(&array[i])
+	for i := 0; i < n; i++ {
+		fmt.Scan(&x)
+		slice = append(slice, x)
 	}
 
-	//tempMin := array[min(array)]
-	tempMin := min(array)
-	min2 := array[tempMin]
+	for i := 0; i < n; i++ {
+		if i == 0 {
+			continue
+		} else {
+			if slice[i] < slice[i-1] {
+				count++
+			}
 
-	array[max(array)] = min2
-	array[min(array)] = array[max(array)]
-
-	for i := range array {
-		fmt.Print(array[i], " ")
+		}
 	}
+
+	fmt.Print(count)
 
 }
