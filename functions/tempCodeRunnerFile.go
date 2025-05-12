@@ -1,5 +1,7 @@
-	// if checkLuckyB(b1) == 1 {
-	// 	fmt.Print(1)
-	// } else {
-	// 	fmt.Print(-1)
-	// }
+
+		// if i == digitCount-1 {
+		// 	res = res + digit
+		// } else {
+		// 	res = res + digit*multiple
+		// 	multiple *= 10
+		// }
